@@ -1,0 +1,102 @@
+@import 'variables';
+@import 'mixins';
+
+.global-container {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.global-header {
+    width: 100%;
+    height: $height-header;
+
+    background: black;
+
+    & > .row {
+        max-height: 100%;
+    }
+}
+
+.header-logo {
+    margin-left: 0.8rem;
+
+    max-height: $height-header;
+    @include pad-vert(0.1rem);
+
+    background: black;
+}
+
+.header-logo-shield {
+    height: 100%;
+    width: auto;
+}
+
+.header-nav {
+    padding-bottom: 1rem;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+
+    color: white;
+
+    & > div {
+        @include pad-hor(1rem);
+
+        @include flex-center;
+        //flex: 1;
+
+        font-weight: 100;
+        font-size: 1.05rem;
+        text-align: center;
+        line-height: 1rem;
+
+        cursor: pointer;
+        transition: color 0.2s ease;
+
+        &:hover:not(.selected) {
+            color: lighten($colour-highlight,10);
+        }
+
+        &.selected {
+            color: $colour-highlight;
+        }
+    }
+}
+
+.header-medhack {
+    margin-right: 1rem;
+    margin-left: 1rem;
+    padding: 0.7rem;
+
+    max-height: $height-header;
+
+    &-button {
+        border-radius: 0.2rem;
+
+        width: 100%;
+        height: 100%;
+
+        padding: 0.8rem;
+
+        @include flex-center;
+
+        background: $colour-highlight;
+
+        font-weight: 700;
+        font-size: 0.9rem;
+
+        cursor: pointer;
+        transition: color 0.2s ease, background 0.2s ease;
+
+        &:hover {
+            color: white;
+            //background: darken($colour-highlight, 10);
+        }
+    }
+
+}
