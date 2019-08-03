@@ -17,6 +17,8 @@
     width: 100%;
     height: $height-header;
 
+    z-index: $z-header;
+
     background: black;
 
     & > .row {
@@ -39,18 +41,18 @@
 }
 
 .header-nav {
-    padding-bottom: 1rem;
-
     display: flex;
-    align-items: flex-end;
+    align-items: stretch;
     justify-content: flex-end;
 
     color: white;
 
     & > div {
         @include pad-hor(1rem);
+        padding-bottom: 1rem;
 
-        @include flex-center;
+        display: flex;
+        align-items: flex-end;
         //flex: 1;
 
         font-weight: 100;
