@@ -4,13 +4,16 @@
 .global-container {
     height: 100vh;
     width: 100vw;
-    overflow: hidden;
+    overflow-y: scroll;
+    overflow-x: hidden;
 
     display: flex;
     flex-direction: column;
 }
 
 .global-header {
+    position: sticky;
+    top: 0;
     width: 100%;
     height: $height-header;
 

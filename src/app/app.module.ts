@@ -4,10 +4,12 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { APP_ROUTES } from './app.routes';
+import { HomeLayoutComponent } from './home-layout/home-layout.component';
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        HomeLayoutComponent
     ],
     imports: [
         BrowserModule,
