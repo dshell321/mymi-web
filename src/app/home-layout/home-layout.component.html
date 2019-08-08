@@ -27,8 +27,8 @@
         </div>
     </div>
 </div>
-<section class="section">
-    <div class="section-img">
+<section class="section section-who">
+    <div class="who-img">
 
     </div>
     <div class="section-content">
@@ -90,3 +90,118 @@
 <div class="hero-spacer">
 
 </div>
+
+<section class="section section-like">
+    <div class="like-img">
+
+    </div>
+    <div class="section-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-4">
+
+                </div>
+                <div class="col-7 who-box">
+                    <span>What we're like.</span>
+                    <div id="like-carousel" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <ng-container *ngFor="let i of [0,1,2,3,4]">
+                                <span data-target="#like-carousel"  [class.active]="i == 1" attr.data-slide-to="{{i}}"></span>
+                            </ng-container>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="carousel-like">
+                                    <h3>We’re empathetic.</h3>
+                                    <ul>
+                                        <li>
+                                            We listen to understand, and take time to put ourselves in other people's positions.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="carousel-like">
+                                    <h3>We’re inclusive.</h3>
+                                    <ul>
+                                        <li>
+                                            We're all different and we're all equal. In the end, we build bridges not walls.
+                                        </li>
+                                        <li>
+                                            No one should be made to feel unvalued.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="carousel-like">
+                                    <h3>We’re effective.</h3>
+                                    <ul>
+                                        <li>
+                                            We make things happen. Even if at the start, we're not sure exactly how.
+                                        </li>
+                                        <li>
+                                            We're dependable, resourceful and entrepreneurial.
+                                        </li>
+                                        <li>
+                                            Our standards are very high, and we work very hard to to live up to them.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="carousel-like">
+                                    <h3>We're all in this together.</h3>
+                                    <ul>
+                                        <li>
+                                            We're supportive of each other. When the going gets tough, we reach out to lend a hand.
+                                        </li>
+                                        <li>
+                                            We will make mistakes, and we'll learn from them. It'll turn out alright in the end. We forgive ourselves and others.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="carousel-like">
+                                    <h3>We're here for a good time.</h3>
+                                    <ul>
+                                        <li>
+                                            Life is ridiculous, short, and full of twists and turns, so we don't take ourselves too seriously.
+                                        </li>
+                                        <li>
+                                            We're stupid in a good way, foolish in an even better way.
+                                        </li>
+                                        <li>
+                                            We're here, we're alive and we're here to stay, so why not enjoy it.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#like-carousel" role="button" data-slide="prev">
+                            <i class="fas fa-chevron-left"></i>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#like-carousel" role="button" data-slide="next">
+                            <i class="fas fa-chevron-right"></i>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                      </div>
+                </div>
+                <div class="col-1">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<div class="hero-spacer">
+
+</div>
+
+<footer>
+<span>MYMI 2019 Ⓒ</span>
+</footer>
