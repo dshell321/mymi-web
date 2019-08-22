@@ -7,6 +7,8 @@
     overflow-y: scroll;
     overflow-x: hidden;
 
+    perspective: 1px;
+
     display: flex;
     flex-direction: column;
 }
@@ -15,7 +17,8 @@
     position: sticky;
     top: 0;
     width: 100%;
-    height: $height-header;
+    min-height: $height-header;
+    max-height: $height-header;
 
     z-index: $z-header;
 

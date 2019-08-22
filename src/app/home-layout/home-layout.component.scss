@@ -7,8 +7,8 @@
 
 @mixin hero-background {
     background-image: url("/assets/hero_surgery.jpg");
-    background-attachment: fixed;
-    background-position: center;
+    //background-attachment: fixed;
+    //background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -22,20 +22,35 @@
         fill: $col;
     }
 
-    path.left {
-        d: path("M 0,0 l 0,100 l 15,0 Z")
+    path.left:hover {
+       // d: path("M 0,0 l 0,100 l 15,0 Z");
     }
 
     path.right {
-        d: path("M 100,100 l 0,-100 l -15,0 Z")
+       // d: path("M 100,100 l 0,-100 l -15,0 Z");
     }
 }
 
 .hero {
-    height: calc(100vh - #{$height-header});
-    width: 100%;
+    position: relative;
 
-    @include hero-background;
+    height: calc(100vh - #{$height-header});
+
+    //width: 100%;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+
+        transform: translateZ(-1.3px) scale(2.56);
+
+        @include hero-background;
+    }
 
     & > .container {
         height: 100%;
@@ -45,10 +60,24 @@
 }
 
 .hero-spacer {
+    position: relative;
     height: 7rem;
     width: 100%;
 
-    @include hero-background;
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+
+        transform: translateZ(-1.1px) scale(2.8);
+
+        background: url("/assets/pics/medhack_overview.png");
+        background-size: cover;
+    }
 }
 
 .hero-box {
@@ -116,16 +145,25 @@
 
     display: flex;
 
-
     background: whitesmoke;
+
+
 
     &.section-who {
         justify-content: flex-end;
+
+
     }
 
-    &.section-like {
+    &.section-do {
         justify-content: flex-start;
     }
+}
+
+.section-content {
+    position: absolute;
+    z-index: 10;
+    top: 0; right: 0; left: 0; bottom: 0;
 }
 
 .who-img {
@@ -144,40 +182,6 @@
     & > svg {
         @include slanted-borders(whitesmoke);
     }
-
-    /*&::after {
-        content: '';
-        position: absolute;
-
-        height: 100rem;
-        width: 500rem;
-
-        background: whitesmoke;
-
-        transform-origin: left top;
-        transform: rotate(75deg);
-    }
-
-    &::before {
-        content: '';
-        position: absolute;
-
-        height: 500rem;
-        width: 10rem;
-
-        background: whitesmoke;
-
-        transform-origin: right top;
-        transform: rotate(-15deg);
-        top: -80%;
-        right: 10%;
-    }*/
-}
-
-.section-content {
-    position: absolute;
-    z-index: 10;
-    top: 0; right: 0; left: 0; bottom: 0;
 }
 
 .who-box {
@@ -198,52 +202,7 @@
 
 }
 
-.vision {
-    width: 100%;
-    height: 20rem;
-
-    background: $colour-highlight;
-}
-
-.vision-spacer {
-    position: relative;
-    width: 12rem;
-    height: 100%;
-
-    overflow: hidden;
-
-    @include hero-background;
-
-    & > svg {
-        @include slanted-borders($colour-highlight);
-    }
-}
-
-.vision-content {
-    height: 20rem;
-
-    @include pad-vert(1rem);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    & > span {
-        margin-bottom: 0.5rem;
-
-        font-size: 2.5rem;
-        color: white;
-    }
-
-    & > p {
-        font-size: 1.35rem;
-
-        & em {
-            color: white;
-        }
-    }
-}
-
-.like-img {
+.do-img {
     position: relative;
     width: 35vw;
     height: 100%;
@@ -261,10 +220,11 @@
     }
 }
 
-.like-box {
+.do-box {
     @include pad-vert(4rem);
     display: flex;
     flex-direction: column;
+    align-items: flex-end;
 
     & > span {
         margin-bottom: 2rem;
@@ -274,73 +234,81 @@
     }
 
     & > p {
+        text-align: right;
         font-size: 1.5rem;
     }
 
 }
 
-#like-carousel {
-    min-height: 25rem;
+.section-spacer {
+    height: 5rem;
+}
 
-    .carousel-inner {
-        height: 100%;
-        width: 100%;
+.section-events {
+    height: auto;
+}
+
+.events-featured {
+    perspective: 200rem;
+
+    display: flex;
+    flex-direction: column;
+
+    padding-bottom: 1rem;
+
+    &.left { align-items: center; }
+
+    &.right { align-items: center; }
+
+    & > span {
+        margin-bottom: 2rem;
+
+        font-size: 3.5rem;
+        color: $colour-highlight;
     }
 
-    .carousel-item {
-        height: 100%;
-        width: 100%;
+    .events-box {
+        position: relative;
 
-        @include pad-hor(15%);
+        margin-bottom: 1rem;
+
+        width: 80%;
+        max-width: 27rem;
+
+        box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.25);
+
+        &::after {
+            content: '';
+            display: block;
+            padding-bottom: 100%;
+        }
+
+        &:hover {
+            transform: rotateY(180deg);
+        }
+
+        transition: transform 1s ease;
+        transform-style: preserve-3d;
+        cursor: pointer;
+
+        .events-box-side {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            backface-visibility: hidden;
+
+            &.front { background: gray; }
+
+            &.back {
+                transform: rotateY(180deg);
+                background: red;
+            }
+        }
     }
 
-    .carousel-control-prev, .carousel-control-next {
-        font-size: 1.6rem;
+    p {
         color: black;
-    }
-
-    .carousel-indicators {
-        display: flex;
-        justify-content: space-around;
-
-        span {
-            display: flex;
-            flex: 1;
-            justify-content: center;
-            cursor: pointer;
-        }
-
-        span:not(.active):before {
-            content: "\f111";
-            font-family: "Font Awesome 5 Free";
-            font-weight: 400;
-        }
-
-        span.active::before {
-            content: "\f111";
-            font-family: "Font Awesome 5 Free";
-            font-weight: 900;
-        }
-    }
-
-    .carousel-like {
-        height: 100%; width: 100%;
-        display: flex;
-        flex-direction: column;
-
-        h3 {
-            margin-bottom: 0.7rem;
-            font-size: 2rem;
-            font-weight: bold;
-        }
-
-        li {
-            margin-bottom: 0.4rem;
-
-            padding-left: 1em;
-
-            font-size: 1.3rem;
-        }
+        font-size: 1.1rem;
     }
 }
 
@@ -354,9 +322,43 @@ footer {
 
     background: black;
 
-    span {
+    font-size: 1.3rem;
+    color: $colour-highlight;
+
+    .mymi {
         @include pad-hor(2rem);
 
+        color: $colour-highlight;
+        font-weight: bold;
+    }
+
+    i {
+        &:hover {
+            color: white;
+        }
+
+        cursor: pointer;
+        transition: color 0.2s ease;
+    }
+
+    /*.fb {
+        color: blue;
+    }
+
+    .ig {
+        color: purple;
+    }
+
+    .gh {
         color: white;
     }
+
+    .tw {
+        color: lightblue;
+    }
+
+    .em {
+        color: red;
+    }*/
+
 }
