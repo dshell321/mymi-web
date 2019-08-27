@@ -7,13 +7,15 @@ import { APP_ROUTES } from './app.routes';
 import { HomeLayoutComponent } from './home-layout/home-layout.component';
 import { ProjectsLayoutComponent } from './projects-layout/projects-layout.component';
 import { AboutLayoutComponent } from './about-layout/about-layout.component';
+import { HeroDirective } from './hero.directive';
 
 @NgModule({
     declarations: [
         AppComponent,
         HomeLayoutComponent,
         ProjectsLayoutComponent,
-        AboutLayoutComponent
+        AboutLayoutComponent,
+        HeroDirective
     ],
     imports: [
         BrowserModule,
