@@ -7,8 +7,8 @@
 
 @mixin hero-background {
     background-image: url("/assets/hero_surgery.jpg");
-    //background-attachment: fixed;
-    //background-position: center;
+    background-attachment: fixed;
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -47,7 +47,7 @@
         bottom: 0;
         z-index: -1;
 
-        transform: translateZ(-1.3px) scale(2.56);
+        //transform: translateZ(-1.3px) scale(2.56);
 
         @include hero-background;
     }
