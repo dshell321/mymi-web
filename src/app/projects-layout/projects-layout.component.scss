@@ -4,9 +4,9 @@
 .hero {
     position: relative;
 
-    height: calc(100vh - #{$height-header});
-
-    //width: 100%;
+    //height: calc(100vh - #{$height-header});
+    height: 100vh;
+    width: 100vw;
 
     &::after {
         content: '';
@@ -19,7 +19,7 @@
 
         //transform: translateZ(-1.3px) scale(2.56);
 
-        background-image: url("/assets/hero_surgery.jpg");
+        background-image: url("/assets/hero_drops.jpg");
         background-attachment: fixed;
         background-position: center;
         background-repeat: no-repeat;
@@ -30,5 +30,97 @@
         height: 100%;
 
         @include flex-center;
+
+        color: white;
+        font-weight: bold;
+        font-size: 4rem;
+        font-kerning: 1rem;
+
+        span {
+            color: white;
+            mix-blend-mode: difference;
+
+            height: 4rem;
+            width: 4rem;
+
+            @include flex-center;
+
+            background: $colour-highlight;
+        }
+
+    }
+}
+
+.projects-container {
+    width: 100%;
+
+    @include pad-hor(2rem);
+    @include pad-vert(4rem);
+
+    display: flex;
+
+    background: whitesmoke;
+}
+
+.projects-block {
+    perspective: 200rem;
+
+    margin-bottom: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-bottom: 1rem;
+
+    & > p {
+        color: black;
+        font-size: 1.1rem;
+
+        padding-left: 0.5rem;
+    }
+}
+
+.projects-card {
+    position: relative;
+
+    margin-bottom: 0.5rem;
+
+    width: 80%;
+    max-width: 27rem;
+
+    box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.25);
+
+    &::after {
+        content: '';
+        display: block;
+        padding-bottom: 100%;
+    }
+
+    &:hover {
+        transform: rotateY(180deg);
+    }
+
+    transition: transform 1s ease;
+    transform-style: preserve-3d;
+    cursor: pointer;
+
+    .projects-card-side {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        backface-visibility: hidden;
+
+        &.front {
+            background: url("/assets/microscope.jpg");
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        &.back {
+            transform: rotateY(180deg);
+            background: green;
+        }
     }
 }

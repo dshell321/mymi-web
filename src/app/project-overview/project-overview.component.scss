@@ -1,0 +1,59 @@
+@import 'variables';
+@import 'mixins';
+
+.hero {
+    position: relative;
+
+    height: calc(100vh - #{$height-header});
+
+    //width: 100%;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+
+        //transform: translateZ(-1.3px) scale(2.56);
+
+        background-image: url("/assets/hero_drops.jpg");
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+
+.main {
+    position: relative;
+
+    background: whitesmoke;
+
+    min-height: 100vh;
+}
+
+.box {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    border: 2px solid white;
+
+
+    width: 30%;
+
+    background: url("/assets/microscope.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    &::after {
+        content: '';
+        display: block;
+        padding-bottom: 100%;
+    }
+}
