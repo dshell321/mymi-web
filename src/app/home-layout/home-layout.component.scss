@@ -2,7 +2,6 @@
 @import 'mixins';
 
 :host() {
-
 }
 
 @mixin hero-background {
@@ -34,11 +33,11 @@
 .hero {
     position: relative;
 
-    height: calc(100vh - #{$height-header});
+    //height: calc(100vh - #{$height-header});
+    height: 100vh;
+    width: 100vw;
 
-    //width: 100%;
-
-    &::after {
+    &::before {
         content: '';
         position: absolute;
         top: 0;
@@ -46,8 +45,6 @@
         right: 0;
         bottom: 0;
         z-index: -1;
-
-        //transform: translateZ(-1.3px) scale(2.56);
 
         @include hero-background;
     }
@@ -267,7 +264,7 @@
         color: $colour-highlight;
     }
 
-    .events-box {
+    .events-card {
         position: relative;
 
         margin-bottom: 1rem;
@@ -291,13 +288,18 @@
         transform-style: preserve-3d;
         cursor: pointer;
 
-        .events-box-side {
+        .events-card-side {
             position: absolute;
             height: 100%;
             width: 100%;
             backface-visibility: hidden;
 
-            &.front { background: gray; }
+            &.front {
+                background: url("/assets/microscope.jpg");
+                background-size: 100%;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
 
             &.back {
                 transform: rotateY(180deg);
@@ -310,55 +312,4 @@
         color: black;
         font-size: 1.1rem;
     }
-}
-
-footer {
-    width: 100%;
-    height: 3rem;
-
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-
-    background: black;
-
-    font-size: 1.3rem;
-    color: $colour-highlight;
-
-    .mymi {
-        @include pad-hor(2rem);
-
-        color: $colour-highlight;
-        font-weight: bold;
-    }
-
-    i {
-        &:hover {
-            color: white;
-        }
-
-        cursor: pointer;
-        transition: color 0.2s ease;
-    }
-
-    /*.fb {
-        color: blue;
-    }
-
-    .ig {
-        color: purple;
-    }
-
-    .gh {
-        color: white;
-    }
-
-    .tw {
-        color: lightblue;
-    }
-
-    .em {
-        color: red;
-    }*/
-
 }
