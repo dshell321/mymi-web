@@ -1,3 +1,4 @@
+import { ProjectsResolverService } from './projects-layout/projects-resolver.service';
 import { HomeLayoutComponent } from './home-layout/home-layout.component';
 import { Routes } from '@angular/router';
 
@@ -12,7 +13,8 @@ export const APP_ROUTES: Routes = [
     },
     {
         path: 'projects',
-        component: ProjectsLayoutComponent
+        component: ProjectsLayoutComponent,
+        resolve: { projects: ProjectsResolverService}
     },
     {
         path: 'project',

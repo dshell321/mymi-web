@@ -17,10 +17,7 @@ export class AppComponent implements OnInit {
     constructor(private router: Router, private wp : WordpressService) {}
 
     ngOnInit(): void {
-        this.wp.getPosts();
-
         this.router.events.subscribe((evt) => {
-            //console.log(evt);
 
             if (!(evt instanceof NavigationStart)) {
                 return;

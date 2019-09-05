@@ -7,12 +7,12 @@
 <main class="projects-container">
     <div class="container-fluid">
         <div class="row">
-            <div *ngFor="let i of [0,1,2,3,4,5,6]" class="projects-block col-4">
+            <div *ngFor="let pt of projects | async" class="projects-block col-4">
                 <div class="projects-card">
-                    <div class="projects-card-side front"></div>
-                    <div class="projects-card-side back"></div>
+                    <div class="projects-card-side front" [style.background-image]="getFeaturedImage(pt)"></div>
+                    <div class="projects-card-side back">{{pt.excerpt}}</div>
                 </div>
-                <p>An exciting project</p>
+                <p>{{pt.title}}</p>
             </div>
         </div>
     </div>
