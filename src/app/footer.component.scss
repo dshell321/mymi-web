@@ -1,0 +1,53 @@
+@import 'variables';
+@import 'mixins';
+
+:host() {
+    width: 100%;
+    min-height: 3.3rem;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    background: black;
+
+    font-size: 1.3rem;
+    color: $colour-highlight;
+    text-align: center;
+}
+
+.mymi {
+    @include pad-hor(2rem);
+
+    color: $colour-highlight;
+    font-weight: bold;
+}
+
+i {
+    &:hover {
+        color: white;
+    }
+
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+/*.fb {
+    color: blue;
+}
+
+.ig {
+    color: purple;
+}
+
+.gh {
+    color: white;
+}
+
+.tw {
+    color: lightblue;
+}
+
+.em {
+    color: red;
+}*/
