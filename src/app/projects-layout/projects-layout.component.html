@@ -10,7 +10,7 @@
             <div *ngFor="let pt of projects | async" class="projects-block col-4">
                 <div class="projects-card">
                     <div class="projects-card-side front" [style.background-image]="getFeaturedImage(pt)"></div>
-                    <div class="projects-card-side back">{{pt.excerpt}}</div>
+                    <div class="projects-card-side back" [style.background-image]="getFeaturedImage(pt)">{{pt.excerpt}}</div>
                 </div>
                 <p>{{pt.title}}</p>
             </div>
